@@ -229,22 +229,71 @@
     /* -------------------------------------------------------------- */
 
 
-      var a = "First";
-      var b = "Second";
-      console.log(a + b + d);
-      var d = "Fourth";
-      // ---------------------> raise error of undefined
+    var a = "First";
+    var b = "Second";
+    console.log(a + b + d);
+    var d = "Fourth";
+    // ---------------------> raise error of undefined
 
-      // But calling a variable through function before function defnition will not raise error like that
+    // But calling a variable through function before function defnition will not raise error like that
 
 
-      // Incase of Anonymus function
+    // Incase of Anonymus function
 
-      console.log(a());
-      var a = function(){
-        a = 100;
-        return a;
-      }
-      //  -------------> raise error;
+    console.log(a());
+    var a = function() {
+      a = 100;
+      return a;
+    }
+    //  -------------> raise error;
 
     /* -------------------------------- */
+
+    /* -------------------------------------------------------------- */
+
+    // Objects in javascript
+
+    let person = new Object();
+
+    person.name = "Shoukki";
+    person.eyecolor = "Blue";
+    person.age = 21;
+
+    console.log(person.name);
+
+    person.updateAge = function() {
+      return ++person.age;
+    }
+    console.log(person.updateAge());
+    /* -------------------------------- */
+    // OR
+
+    let person = {
+      name: "shoukki",
+      eyecolor: "black",
+      age: 21,
+      updateAge: function() {
+        return ++person.age;
+      }
+    }
+
+    console.log(person.updateAge());
+
+    /* -------------------------------- */
+
+    // construcrors and blueprint
+
+    // blueprint
+
+    function Person(name, eyecolor, age) { // Object always start with capital letter
+      this.name = name;
+      this.eyecolor = eyecolor;
+      this.age = age;
+      this.updateAge = function() {
+        return ++this.age;
+      }
+    }
+
+    //constructor
+
+    let person_01 = new Person("Shoukki", "Black", 21);
