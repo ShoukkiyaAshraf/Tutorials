@@ -190,3 +190,36 @@
             var greeting = "Hi, Welcome!!... ";
             console.log(greeting);
         }())
+/* -------------------------------------------------------------- */
+
+  // Global and local SCOPE
+
+  // global scope
+        var number = 5;
+        function calc(){
+          return number;
+        }
+      console.log(calc());
+    /* -------------------------------- */
+      // local scope
+
+            function calc(){
+              var number = 5;
+              return number;
+            }
+          console.log(calc(),number);  // ---> reference error
+
+/* -------------------------------------------------------------- */
+
+  // LET and CONST variable types :
+
+    if (1 == 1){
+      let a = 10;
+    }
+    console.log(a); // ---> raise error
+
+  /* -------------------------------- */
+    const EXAMPLE = 10;
+    EXAMPLE = 11 ; // --> raise an error
+
+  /* -------------------------------------------------------------- */
