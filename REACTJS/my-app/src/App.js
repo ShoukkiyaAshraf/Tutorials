@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Person from './Person/Person';
-import person from './Person/Person';
+
 
 function App() {
   return (
@@ -11,7 +11,9 @@ function App() {
         <p>
           Aloo <code>React :)</code> ..
         </p>
-        <Person></Person>
+        <Person name="Max" age="28"></Person>
+        <Person name="Mary" age="48">My hobbies are racing !!</Person>
+        <Person name="Sindralla" age="8"></Person>
         <a
           className="App-link"
           href="https://reactjs.org"
