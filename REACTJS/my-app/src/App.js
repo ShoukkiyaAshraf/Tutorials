@@ -6,14 +6,23 @@ import { Component } from 'react';
 class App extends Component{
   state = {
     persons:[
-      {name:'Maxi', age:28},
-      {name:'Mary', age:48},
-      {name:'Sindralla', age:24}
-    ]
+      { name: 'Maxi', age: 28 },
+      { name: 'Mary', age: 48 },
+      { name: 'Sindralla', age: 24 }
+    ],
+    otherstates: 'Some Other States'
   }
 
   buttonClickHandler = () => {
-    console.log("Cliked the button :) ");
+    // console.log("Cliked the button :) ");
+    // Don't Do This ---> this.state.persons[0].name = "Maxi williams";
+    this.setState({
+      persons:[
+        { name: 'Maxi Williams', age: 28 },
+        { name: 'Mary', age: 48 },
+        { name: 'Sindralla', age: 21 }
+      ]
+    });
   }
   render() {
     return (
