@@ -1,47 +1,45 @@
 import logo from './logo.svg';
 import './App.css';
 import Person from './Person/Person';
-import React, { useState } from 'react';
+import { Component } from 'react';
 
-const App = props => {
-    const [ personsState, setPersonsState] = useState({
+class App extends Component {
+  state = {
+    persons:[
+      { name: 'Maxi', age: 28 },
+      { name: 'Mary', age: 48 },
+      { name: 'Sindralla', age: 24 }
+    ],
+    otherstates: 'Some Other States'
+  }
+
+  buttonClickHandler = (newName) => {
+    // console.log("Cliked the button :) ");
+    // Don't Do This ---> this.state.persons[0].name = "Maxi williams";
+    this.setState({
       persons:[
-        { name: 'Maxi', age: 28 },
+        { name: newName, age: 28 },
         { name: 'Mary', age: 48 },
-        { name: 'Sindralla', age: 24 }
-      ],
-      otherstates: 'Some Other States'
+        { name: 'Sindralla', age: 21 }
+      ]
     });
-    const [otherState, setOtherState] = useState('Another value');
-    console.log(personsState,otherState);
-    const buttonClickHandler = () => {
-      // console.log("Cliked the button :) ");
-      // Don't Do This ---> personsState.persons[0].name = "Maxi williams";
-      setPersonsState({
-        persons:[
-          { name: 'Maxi Williams', age: 28 },
-          { name: 'Mary', age: 48 },
-          { name: 'Sindralla', age: 21 }
-        ],
-        otherstates: 'Some Other States'
-      });
-    };
-
+  }
+  render() {
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <Person name={personsState.persons[0].name} age={personsState.persons[0].age}></Person>
-          <Person name={personsState.persons[1].name} age={personsState.persons[1].age}> :)</Person>
-          <Person name={personsState.persons[2].name} age={personsState.persons[2].age}></Person>
-          <button onClick={buttonClickHandler}>
+          <Person name={this.state.persons[0].name} age={this.state.persons[0].age}></Person>
+          <Person click={() => this.buttonClickHandler('Maximillian nnn!!!')} name={this.state.persons[1].name} age={this.state.persons[1].age}> :)</Person>
+          <Person name={this.state.persons[2].name} age={this.state.persons[2].age}></Person>
+          <button onClick={() => this.buttonClickHandler('Maxii!!')}>
             Learn React
           </button>
         </header>
       </div>
     );
-  }
-
+  };
+}
 
 
 export default App;
