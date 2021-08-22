@@ -36,6 +36,15 @@ class App extends Component {
   }
 
   render() {
+
+    const style = {
+      backgroundColor: 'white',
+      font: 'inherit',
+      border: '3px solid blue',
+      padding: '8px',
+      cursor: 'pointer'
+    };
+
     return (
       <div className="App">
         <header className="App-header">
@@ -55,7 +64,9 @@ class App extends Component {
             name={this.state.persons[2].name} 
             age={this.state.persons[2].age}>           
           </Person>
-          <button onClick={this.buttonClickHandler.bind(this,'Maxii!!')}>
+          <button 
+            style = {style}
+            onClick={this.buttonClickHandler.bind(this,'Maxii!!')}>
             Learn React
           </button>
         </header>
