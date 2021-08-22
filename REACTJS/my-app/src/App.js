@@ -30,9 +30,9 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <Person name={this.state.persons[0].name} age={this.state.persons[0].age}></Person>
-          <Person click={() => this.buttonClickHandler('Maximillian nnn!!!')} name={this.state.persons[1].name} age={this.state.persons[1].age}> :)</Person>
+          <Person click={this.buttonClickHandler.bind(this,'miniii!!!')} name={this.state.persons[1].name} age={this.state.persons[1].age}> :)</Person>
           <Person name={this.state.persons[2].name} age={this.state.persons[2].age}></Person>
-          <button onClick={() => this.buttonClickHandler('Maxii!!')}>
+          <button onClick={this.buttonClickHandler.bind(this,'Maxii!!')}>
             Learn React
           </button>
         </header>
