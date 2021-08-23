@@ -51,28 +51,33 @@ class App extends Component {
       cursor: 'pointer'
     };
 
+    let person = null;
+
+    if(this.state.showPerson){
+      person = <div>
+        <Person 
+          name={this.state.persons[0].name} 
+          age={this.state.persons[0].age}>
+        </Person>
+        <Person 
+          click={this.buttonClickHandler.bind(this,'miniii!!!')} 
+          name={this.state.persons[1].name} 
+          age={this.state.persons[1].age}
+          changed={this.nameChangeHandler}
+          > :)
+        </Person>
+        <Person 
+          name={this.state.persons[2].name} 
+          age={this.state.persons[2].age}>           
+        </Person>
+        </div>;
+    }
+
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          {this.state.showPerson ? <div>
-          <Person 
-            name={this.state.persons[0].name} 
-            age={this.state.persons[0].age}>
-          </Person>
-          <Person 
-            click={this.buttonClickHandler.bind(this,'miniii!!!')} 
-            name={this.state.persons[1].name} 
-            age={this.state.persons[1].age}
-            changed={this.nameChangeHandler}
-            > :)
-          </Person>
-          <Person 
-            name={this.state.persons[2].name} 
-            age={this.state.persons[2].age}>           
-          </Person>
-          </div> : null
-          }
+          {person}
           <button 
             style = {style}
             onClick={this.togglePersonHandler}>
