@@ -10,7 +10,8 @@ class App extends Component {
       { name: 'Mary', age: 48 },
       { name: 'Sindralla', age: 24 }
     ],
-    otherstates: 'Some Other States'
+    otherstates: 'Some Other States',
+    showPerson : false
   }
 
   buttonClickHandler = (newName) => {
@@ -35,6 +36,11 @@ class App extends Component {
     });
   }
 
+  togglePersonHandler = () => {
+    const showTemp = this.state.showPerson;
+    this.setState({showPerson: !showTemp});
+  }
+
   render() {
 
     const style = {
@@ -49,6 +55,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
+          {this.state.showPerson ? <div>
           <Person 
             name={this.state.persons[0].name} 
             age={this.state.persons[0].age}>
@@ -64,9 +71,11 @@ class App extends Component {
             name={this.state.persons[2].name} 
             age={this.state.persons[2].age}>           
           </Person>
+          </div> : null
+          }
           <button 
             style = {style}
-            onClick={this.buttonClickHandler.bind(this,'Maxii!!')}>
+            onClick={this.togglePersonHandler}>
             Learn React
           </button>
         </header>
