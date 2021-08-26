@@ -5,7 +5,7 @@ import { Component } from 'react';
 import styled from 'styled-components';
 
 const StyledButton = styled.button`
-                        background-color: green;
+                        background-color: ${props => props.alt ? 'red' : 'green'};
                         color: white;
                         font: inherit;
                         border: 3px solid blue;
@@ -13,7 +13,7 @@ const StyledButton = styled.button`
                         cursor: pointer;
 
                         &:hover{
-                          background-color: lightgreen;
+                          background-color: ${props => props.alt ? 'salmon' : 'lightgreen'};
                           color: black;
                         }
                         `;
@@ -91,7 +91,7 @@ class App extends Component {
           </div>
       );
 
-      style.backgroundColor = 'red';
+      // style.backgroundColor = 'red';
     }
 
     const classes = [];
@@ -107,6 +107,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <p className={classes.join(' ')}>This is really cool..!!</p>
           <StyledButton
+            alt = {this.state.showPerson}
             onClick={this.togglePersonHandler}>
             Learn React
             </StyledButton>
