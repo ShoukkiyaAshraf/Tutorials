@@ -1,10 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
-import Person from './Person/Person';
+import Person from '../components/Persons/Person/Person';
 import { Component } from 'react';
+import styled from 'styled-components';
+import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 
+const StyledButton = styled.button`
+                        background-color: ${props => props.alt ? 'red' : 'green'};
+                        color: white;
+                        font: inherit;
+                        border: 3px solid blue;
+                        padding: 8px;
+                        cursor: pointer;
 
-
+                        &:hover{
+                          background-color: ${props => props.alt ? 'salmon' : 'lightgreen'};
+                          color: black;
+                        }
+                        `;
 
 class App extends Component {
   state = {
@@ -68,12 +81,13 @@ class App extends Component {
           <div>
             {
               this.state.persons.map( (aperson,index) => {
-                return <Person 
+                return <ErrorBoundary key={aperson.id}>
+                  <Person 
                 click = { () => this.deletePersonHandler(index)}
                 name= {aperson.name}
                 age = {aperson.age}
                 key = {aperson.id} 
-                changed = { (event) => this.nameChangeHandler(event, aperson.id)}/>
+                changed = { (event) => this.nameChangeHandler(event, aperson.id)}/></ErrorBoundary>
               })
             }
           </div>
