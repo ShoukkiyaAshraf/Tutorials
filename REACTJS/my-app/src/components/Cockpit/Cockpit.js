@@ -6,11 +6,11 @@ const cockpit = ( props ) => {
     const assignedClasses = [];
     let btnClass = '';
     if (props.showPersons) {
-        btnClass = 'red';
+        btnClass = 'Red';
     }
 
     if ( props.persons.length <= 2 ) {
-      assignedClasses.push( 'red' ); // classes = ['red']
+      assignedClasses.push( 'Red' ); // classes = ['red']
     }
     if ( props.persons.length <= 1 ) {
       assignedClasses.push( 'bold' ); // classes = ['red', 'bold']
