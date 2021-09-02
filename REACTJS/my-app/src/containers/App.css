@@ -1,3 +1,14 @@
 .App {
   text-align: center;
 }
+
+.App button {
+  /* border: 1px solid #795548; */
+  padding: 7px;
+  background-color: #63758a;
+  font: inherit;
+  color: white;
+  cursor: pointer;
+  /* border-radius: 15px; */
+  margin: 2px;
+}
