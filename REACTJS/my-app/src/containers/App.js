@@ -101,6 +101,7 @@ class App extends Component {
     }
 
     return (
+      <div className="App">
       <Aux>
         {this.state.showCockpit ? (
             <div>
@@ -128,9 +129,11 @@ class App extends Component {
         
         {persons}
     </Aux>
+    </div>
     );
     // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Does this work now?'));
   }
 }
 
-export default withClass(App, 'App');
+// export default withClass(App, 'App');
+export default App;
