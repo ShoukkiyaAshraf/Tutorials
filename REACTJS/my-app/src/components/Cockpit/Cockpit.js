@@ -1,11 +1,10 @@
-import React, { useEffect , useRef} from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import classes from './Cockpit.css';
 
-const Cockpit = ( props ) => {
+const Cockpit = (props) => {
 
     const toggleBtnRef = useRef(null);
-    
 
     useEffect(() => {
         console.log('[Cockpit.js] useEffect');
@@ -32,17 +31,17 @@ const Cockpit = ( props ) => {
         btnClass = 'Red';
     }
 
-    if ( props.personsLength <= 2 ) {
-      assignedClasses.push( 'Red' ); // classes = ['red']
+    if (props.personsLength <= 2) {
+        assignedClasses.push('Red'); // classes = ['red']
     }
-    if ( props.personsLength <= 1 ) {
-      assignedClasses.push( 'bold' ); // classes = ['red', 'bold']
+    if (props.personsLength <= 1) {
+        assignedClasses.push('bold'); // classes = ['red', 'bold']
     }
 
     return (
         <div className={'Cockpit'}>
             <h1>{props.title}</h1>
-            <p className={assignedClasses.join( ' ' )}>This is really working!</p>
+            <p className={assignedClasses.join(' ')}>This is really working!</p>
             <button
                 ref={toggleBtnRef}
                 className={btnClass}
