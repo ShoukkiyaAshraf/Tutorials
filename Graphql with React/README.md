@@ -148,4 +148,186 @@ will provide the result -
 }
 </pre>
 
+To learn using outside API, create a sample outside server
+<b>install json server</b>
+<pre>
+npm install --save json-server
+</pre>
+Create db.json to include user details.
+Update package.json by adding json server in the scripts section.
+<pre>
+"json:server" : "json-server --watch db.json"
+</pre>
+Run json server 
+<pre>
+npm run json:server
+</pre>
+Install axios - Axios is a popular JavaScript library used for making HTTP requests from web browsers and Node.js environments.
+<pre>
+npm install --save axios
+</pre>
+install nodemon - Nodemon is a utility tool that helps in automatically restarting your Node.js application when file changes are detected.
+<pre>
+npm install --save nodemon
+</pre>
+Add to package.json
+<pre>
+"dev" : "nodemon server.js"
+</pre>
+nested query sample :)
+<pre>
+{
+  company(id: "2") {
+    name
+    users {
+      id
+      firstName
+      age
+      company{
+        name
+        users{
+          firstName
+        }
+      }
+    }
+  }
+}
+</pre>
+Result :) 
+<pre>
+{
+  "data": {
+    "company": {
+      "name": "Google",
+      "users": [
+        {
+          "id": "40",
+          "firstName": "Teena",
+          "age": 25,
+          "company": {
+            "name": "Google",
+            "users": [
+              {
+                "firstName": "Teena"
+              },
+              {
+                "firstName": "Nick"
+              }
+            ]
+          }
+        },
+        {
+          "id": "41",
+          "firstName": "Nick",
+          "age": 40,
+          "company": {
+            "name": "Google",
+            "users": [
+              {
+                "firstName": "Teena"
+              },
+              {
+                "firstName": "Nick"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
+</pre>
+Multiple resources can be called using naming. Example :
+<pre>
+{
+  Google: company(id: "2") {
+    name
+    users {
+      id
+      firstName
+      age
+    }
+  }
+  Microsoft: company(id: "3") {
+    name
+    users {
+      id
+      firstName
+      age
+    }
+  }
+}
 
+</pre>
+Result : 
+<pre>
+{
+  "data": {
+    "Google": {
+      "name": "Google",
+      "users": [
+        {
+          "id": "40",
+          "firstName": "Teena",
+          "age": 25
+        },
+        {
+          "id": "41",
+          "firstName": "Nick",
+          "age": 40
+        }
+      ]
+    },
+    "Microsoft": {
+      "name": "Microsoft",
+      "users": [
+        {
+          "id": "44",
+          "firstName": "Alex",
+          "age": 40
+        }
+      ]
+    }
+  }
+}
+</pre>
+Query Fragments :  Fragments let you construct sets of fields, and then include them in queries where you need to.
+<pre>
+{
+  Google: company(id: "2") {
+    ...companyDetails
+    users {
+      id
+      firstName
+      age
+    }
+  }
+  Microsoft: company(id: "3") {
+    ...companyDetails
+    users {
+      id
+      firstName
+      age
+    }
+  }
+}
+
+fragment companyDetails on Company{
+  id
+  name
+  description
+}
+</pre>
+
+<b>Mutations</b> - To manipulate / modify server-side data.
+
+<b>GraphQL clients : </b>
+GraphQL client is code that makes a POST request to a GraphQL Server. In the body of the request we send a GraphQL query or mutation as well as some variables and we expect to get some JSON back.
+FetchQL
+GraphQL Request
+Apollo Fetch
+Lokka
+Micro GraphQL React
+URQL
+Apollo Client
+Relay Modern
