@@ -1,0 +1,41 @@
+input#search-input {
+    margin: 1%;
+    border-radius: 3px;
+    height: 21px;
+    width: 239px;
+    border: 1px solid #b2b6bd;
+}
+.user {
+    display: flex;
+    margin-left: 41%;
+}
+.user a {
+    margin-left: 4%;
+    color: black;
+    text-decoration: none;
+}
+.App h3 {
+    margin-top: -8%;
+}
+button#repo_details {
+    margin-left: 4%;
+    height: 37px;
+    background: black;
+    color: white;
+    font-family: cursive;
+    font-size: 12px;
+    border-radius: 10px;
+}
+button#search-button {
+    background: black;
+    color: white;
+    height: 30px;
+    width: 7%;
+    font-size: 12px;
+    font-family: cursive;
+    border-radius: 6px;
+    /* font-weight: 800; */
+}
+form#git-user-form {
+    margin: 12%;
+}

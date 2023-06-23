@@ -1,0 +1,27 @@
+@tailwind base;
+
+/**
+ * Begin global overrides.
+ *
+ * You can use `@apply` or `theme()` to access existing Tailwind CSS styles or variables.
+ * (See https://tailwindcss.com/docs/adding-base-styles/#using-css)
+ */
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* End global overrides. */
+
+@tailwind components;
+@tailwind utilities;
